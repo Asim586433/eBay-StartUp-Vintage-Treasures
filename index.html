@@ -2,656 +2,500 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>eBay StartUp · Vintage & Treasures</title>
-  <!-- Font Awesome 6 (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinnacle Flatbed · regional transport</title>
   <style>
-    /* reset & brand foundation */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    :root {
+      --primary: #0a2942;
+      --secondary: #c4452b;
+      --accent: #e8b33c;
+      --light: #f8f9fa;
+      --white: #ffffff;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     }
 
     body {
-      background: #faf8f5;
-      color: #1f2937;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      font-family: var(--font-sans);
+      background-color: var(--white);
+      color: #1e2a36;
+      line-height: 1.5;
     }
 
     .container {
+      width: 100%;
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
-      width: 100%;
+      padding: 1.5rem;
     }
 
-    /* HEADER – strong brand presence */
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: white;
+      font-weight: 600;
+      padding: 0.9rem 2.2rem;
+      border-radius: 2.5rem;
+      text-decoration: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #a83b24;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+    }
+    .btn-outline:hover {
+      background: var(--secondary);
+      color: var(--white);
+    }
+
+    /* Header */
     .site-header {
-      background: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 20, 30, 0.05);
-      padding: 16px 0;
-      border-bottom: 4px solid #e67e3b;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(10,41,66,0.1);
     }
-
-    .header-inner {
+    .header-row {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
     }
-
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 0.75rem;
     }
-
     .logo-icon {
-      background: #2a4b7c;
-      color: white;
-      width: 52px;
-      height: 52px;
-      border-radius: 16px 6px 16px 6px;
+      background: var(--primary);
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
-      transform: rotate(-2deg);
-      box-shadow: 0 6px 0 #16324b;
+      font-size: 2rem;
+      color: var(--accent);
     }
-
-    .logo-text h1 {
-      font-size: 2.1rem;
+    .logo-text {
+      font-size: 1.8rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #16324b;
+      color: var(--primary);
       line-height: 1.1;
     }
-
-    .logo-text .tagline {
+    .logo-text span {
+      color: var(--secondary);
       font-size: 1rem;
-      font-weight: 400;
-      color: #e67e3b;
-      background: #fef1e6;
-      padding: 4px 12px;
-      border-radius: 40px;
-      display: inline-block;
-      margin-top: 5px;
+      font-weight: 500;
+      display: block;
     }
-
-    /* main call to action – ebay store button */
-    .ebay-store-btn {
-      background: #e53238;
-      color: white;
-      padding: 12px 28px;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 1.2rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 5px 0 #941b1f;
-      border: none;
-      cursor: pointer;
-      transition: all 0.1s ease;
-      text-decoration: none;
-      border: 2px solid #ffb3a5;
-    }
-
-    .ebay-store-btn i {
-      font-size: 1.5rem;
-    }
-
-    .ebay-store-btn:active {
-      transform: translateY(4px);
-      box-shadow: 0 1px 0 #941b1f;
-    }
-
-    .ebay-store-btn:hover {
-      background: #c52a2a;
-      border-color: #ffd7c0;
-    }
-
-    /* navigation – all links tested */
-    .navbar {
-      background: white;
-      border-bottom: 1px solid #e6dbd0;
-    }
-
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      list-style: none;
-      gap: 36px;
+      gap: 1.5rem;
+      align-items: center;
     }
-
     .nav-links a {
       text-decoration: none;
       font-weight: 600;
-      color: #2b2b2b;
-      font-size: 1.1rem;
-      padding: 10px 0;
-      border-bottom: 3px solid transparent;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      color: var(--primary);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+    .quote-btn {
+      border: 2px solid var(--secondary);
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .quote-btn:hover {
+      background: var(--secondary);
+      color: var(--white) !important;
     }
 
-    .nav-links a:hover, .nav-links a.active {
-      border-bottom-color: #e67e3b;
-      color: #16324b;
+    /* HERO */
+    .hero {
+      padding: 2rem 1.5rem;
     }
-
-    /* hero image – properly placed, visible */
-    .hero-block {
-      margin: 32px 0 20px;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 18px 28px -12px rgba(0,0,0,0.15);
-      background: #adc2d6;
-    }
-
-    .hero-img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      max-height: 300px;
-      min-height: 180px;
-      background: #86a2c0;
-    }
-
-    /* welcome banner – repeat customer message */
-    .welcome-card {
-      background: white;
-      border-radius: 28px;
-      padding: 28px 34px;
-      margin: 32px 0;
-      border-left: 10px solid #e67e3b;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.02);
-    }
-
-    .welcome-card p {
-      font-size: 1.4rem;
-      font-weight: 430;
-    }
-
-    .repeat-code {
-      background: #16324b;
-      color: white;
-      padding: 6px 18px;
-      border-radius: 60px;
-      font-weight: 600;
-      margin-left: 12px;
-      white-space: nowrap;
-    }
-
-    /* product showcase – core ebay items */
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 650;
-      color: #16324b;
-      margin: 50px 0 24px;
+    .hero-grid {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 2rem;
     }
-    .section-title i {
-      color: #e67e3b;
-      font-size: 2rem;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 14px 24px -10px rgba(0,0,0,0.1);
-      transition: transform 0.15s;
-      border: 1px solid #f0e2d6;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 30px -10px rgba(0,0,0,0.15);
-    }
-
-    .product-image-wrapper {
-      background: #f4ede5;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .product-image {
-      max-width: 100%;
-      max-height: 170px;
-      object-fit: contain;
-      mix-blend-mode: multiply;
-    }
-
-    .product-detail {
-      padding: 18px 18px 22px;
-      border-top: 2px dashed #ddcfc2;
+    .hero-content {
       flex: 1;
-      display: flex;
-      flex-direction: column;
     }
-
-    .product-name {
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: #16324b;
-      margin-bottom: 4px;
+    .hero-content h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 1rem;
     }
-
-    .product-price {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #1d8b4f;
-      margin: 8px 0 12px;
-    }
-    .product-price small {
-      font-size: 0.95rem;
-      color: #5f5f5f;
-      font-weight: 400;
-    }
-
-    /* eBay button on cards – working, tested */
-    .ebay-card-btn {
-      background: #16324b;
-      border: none;
-      color: white;
-      padding: 14px 0;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 1rem;
+    .hero-bullet {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: auto;
-      cursor: pointer;
-      transition: 0.15s;
-      border: 2px solid #0f2538;
-      width: 100%;
-    }
-
-    .ebay-card-btn i {
-      font-size: 1.2rem;
-    }
-
-    .ebay-card-btn:hover {
-      background: #e67e3b;
-      border-color: #b45f29;
-    }
-
-    /* repeat customer + image section */
-    .repeat-section {
-      display: flex;
-      flex-wrap: wrap;
-      background: #fff9f3;
-      border-radius: 48px;
-      margin: 48px 0;
-      padding: 32px 34px;
-      gap: 30px;
-      align-items: center;
-      border: 2px solid #fadbc8;
-    }
-
-    .repeat-text {
-      flex: 2 1 280px;
-    }
-
-    .repeat-text h3 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: #16324b;
-    }
-
-    .repeat-text p {
-      font-size: 1.2rem;
-      margin: 14px 0 18px;
-    }
-
-    .repeat-image-box {
-      flex: 1 1 220px;
-      text-align: center;
-    }
-
-    .repeat-image-box img {
-      max-width: 100%;
-      border-radius: 40px;
-      box-shadow: 0 14px 22px rgba(0,0,0,0.08);
-      background: #bed1e0;
-    }
-
-    .email-subscribe {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .email-subscribe input {
-      flex: 1 1 210px;
-      padding: 15px 22px;
-      border: 2px solid #ddd1c5;
-      border-radius: 60px;
-      font-size: 1rem;
-      outline: none;
-    }
-
-    .email-subscribe input:focus {
-      border-color: #e67e3b;
-    }
-
-    .subscribe-action {
-      background: #16324b;
-      border: none;
-      color: white;
-      padding: 15px 34px;
-      border-radius: 60px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: 0.15s;
-      border: 2px solid #0f2a40;
-    }
-
-    .subscribe-action:hover {
-      background: #e67e3b;
-    }
-
-    /* footer */
-    .site-footer {
-      background: #16324b;
-      color: #eae2d8;
-      padding: 40px 0 30px;
-      margin-top: 40px;
-      border-top: 8px solid #e67e3b;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .footer-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
-      margin: 20px 0 24px;
-    }
-
-    .footer-nav a {
-      color: #ffdbbd;
-      text-decoration: none;
+      gap: 0.75rem;
+      margin: 1.5rem 0 2rem;
       font-size: 1.1rem;
+      color: #2d3a47;
+    }
+    .hero-bullet::before {
+      content: "•";
+      color: var(--secondary);
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    .hero-image {
+      flex: 1;
+      position: relative;
+      background: #0a2942;
+      border-radius: 2rem;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cpath d='M60,130 L140,70 L220,100 L300,60 L340,90 L340,150 L60,150Z' fill='%23e8b33c' opacity='0.9'/%3E%3Ccircle cx='110' cy='150' r='25' fill='%23333'/%3E%3Ccircle cx='260' cy='150' r='25' fill='%23333'/%3E%3Crect x='170' y='95' width='45' height='30' fill='%23c4452b' rx='6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    .hero-image-text {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.3);
+      padding: 0.5rem 2rem;
+      border-radius: 4px;
+    }
+
+    /* Services */
+    .services-section {
+      padding: 2rem 1.5rem;
+    }
+    .services-section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .service-card {
+      background: white;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0,20,40,0.08);
+      border: 1px solid #eee;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,20,40,0.12);
+    }
+    .card-icon {
+      background: var(--primary);
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .service-card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .service-card p {
+      color: #4a5568;
+      margin-bottom: 1.5rem;
+    }
+    .card-link {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 0.5rem;
+      transition: gap 0.3s;
+    }
+    .card-link:hover {
+      gap: 0.75rem;
     }
 
-    .footer-nav a:hover {
-      color: #ffad6b;
+    /* Values */
+    .values-section {
+      padding: 2rem 1.5rem;
+      background: #f8fafc;
     }
-
-    .copyright {
-      opacity: 0.8;
-      font-size: 0.95rem;
-    }
-
-    /* interactive toast (simulated feedback) */
-    .toast-message {
-      visibility: hidden;
-      min-width: 260px;
-      background: #1e3f5c;
-      color: white;
+    .values-section h2 {
       text-align: center;
-      border-radius: 60px;
-      padding: 16px 22px;
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.2s;
-      box-shadow: 0 15px 25px -6px #00000050;
-      z-index: 9999;
-      font-weight: 500;
-      border: 2px solid #e67e3b;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .value-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .value-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .value-emoji {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 0.5rem;
     }
 
-    .toast-message.show {
-      visibility: visible;
-      opacity: 1;
+    /* Contact */
+    .contact-section {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 1.5rem;
+      border-radius: 2rem 2rem 0 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 1.5rem;
+      border: none;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-family: inherit;
+      transition: outline 0.2s, background 0.2s;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: 2px solid var(--accent);
+      background: rgba(255,255,255,0.15);
+    }
+    .contact-form textarea {
+      resize: vertical;
+      border-radius: 1rem;
+    }
+    .contact-form button {
+      background: var(--accent);
+      color: var(--primary);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      font-size: 1rem;
+    }
+    .contact-form button:hover {
+      background: #f0c354;
+      transform: translateY(-2px);
     }
 
-    /* mobile optimization */
-    @media (max-width: 640px) {
-      .header-inner {
+    /* Footer */
+    .site-footer {
+      background: #0a1e2f;
+      color: #94a3b8;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
         flex-direction: column;
       }
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
       .nav-links {
-        gap: 16px;
-        justify-content: center;
-      }
-      .welcome-card p {
-        font-size: 1.2rem;
-      }
-      .repeat-section {
-        flex-direction: column-reverse;
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <!-- toast for interactive feedback (testing all buttons) -->
-  <div id="actionToast" class="toast-message">✨ redirecting...</div>
-
-  <!-- HEADER with ebay button (1) -->
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="container header-row">
       <div class="logo-area">
-        <div class="logo-icon"><i class="fas fa-crown"></i></div>
-        <div class="logo-text">
-          <h1>vault&nbsp;&amp;&nbsp;vintage</h1>
-          <span class="tagline"><i class="fas fa-star"></i> ebay seller since 2025</span>
-        </div>
+        <div class="logo-icon">⛋</div>
+        <div class="logo-text">PINNACLE<span>flatbed transport</span></div>
       </div>
-      <button class="ebay-store-btn" id="mainEbayBtn"><i class="fab fa-ebay"></i> eBay Storefront</button>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#values">Values</a>
+        <a href="#contact">Contact</a>
+        <a href="#quote" class="quote-btn">Get quote</a>
+      </nav>
     </div>
   </header>
 
-  <!-- NAVIGATION (all buttons functional) -->
-  <nav class="navbar">
-    <div class="container">
-      <ul class="nav-links">
-        <li><a href="#" id="navHome" class="active"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="#" id="navShop"><i class="fas fa-tag"></i> Shop</a></li>
-        <li><a href="#" id="navAbout"><i class="fas fa-info-circle"></i> About</a></li>
-        <li><a href="#" id="navContact"><i class="fas fa-paper-plane"></i> Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Regional flatbed.<br>Reliable. Ready.</h1>
+          
+          <div class="hero-bullet">
+            Heavy haul, machinery, and building materials — 24/7 dispatch across 12 states.
+          </div>
+          
+          <div class="hero-buttons">
+            <a href="#services" class="btn">Our services</a>
+            <a href="#contact" class="btn btn-outline">Contact fleet</a>
+          </div>
+        </div>
+        
+        <div class="hero-image">
+          <div class="hero-image-text">FLATBED</div>
+        </div>
+      </div>
+    </section>
 
-  <main class="container">
-    <!-- HERO image – placed correctly, non-empty -->
-    <div class="hero-block">
-      <img class="hero-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='300' viewBox='0 0 1200 300'%3E%3Crect width='1200' height='300' fill='%239bb7d4'/%3E%3Ctext x='70' y='140' font-family='Inter' font-size='48' fill='%2316324b' font-weight='bold'%3E🌟 fresh vintage arrivals%3C/text%3E%3Ctext x='70' y='200' font-family='Inter' font-size='30' fill='%23e67e3b'%3Eshop with confidence – trusted ebay store%3C/text%3E%3C/svg%3E"
-           alt="Vintage items collage">
-    </div>
+    <section id="services" class="services-section">
+      <div class="container">
+        <h2>Specialized flatbed solutions</h2>
+        
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="card-icon">🏗️</div>
+            <h3>Heavy equipment</h3>
+            <p>Lowboys & RGNs for dozers, excavators, cranes. Permits included.</p>
+            <a href="#" class="card-link" onclick="alert('Heavy equipment team'); return false;">Get specialist →</a>
+          </div>
+          <div class="service-card">
+            <div class="card-icon">🪵</div>
+            <h3>Lumber & steel</h3>
+            <p>Flatbed, step deck for lumber, rebar, pipes. Tarping included.</p>
+            <a href="#" class="card-link" onclick="alert('Lumber desk'); return false;">Check rates →</a>
+          </div>
+          <div class="service-card">
+            <div class="card-icon">🗺️</div>
+            <h3>Interstate flatbed</h3>
+            <p>48-state LTL/FTL, time definite, with live tracking.</p>
+            <a href="#" class="card-link" onclick="alert('Regional dispatch'); return false;">Get quick quote →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- REPEAT CUSTOMER banner (message with discount) -->
-    <div class="welcome-card">
-      <p><i class="fas fa-heart" style="color:#e67e3b; font-size:2rem; vertical-align: middle; margin-right: 14px;"></i>
-      <strong>Welcome back, repeat friend!</strong> Use code <span class="repeat-code">VAULT10</span> for 10% off your next order.</p>
-    </div>
+    <section id="values" class="values-section">
+      <div class="container">
+        <h2>Our core values</h2>
+        <div class="values-grid">
+          <div class="value-item"><span class="value-emoji">🛡️</span> Safety first</div>
+          <div class="value-item"><span class="value-emoji">🔒</span> Secure tarp</div>
+          <div class="value-item"><span class="value-emoji">⏱️</span> On‑time</div>
+          <div class="value-item"><span class="value-emoji">📞</span> 24/7 support</div>
+          <div class="value-item"><span class="value-emoji">⚖️</span> Legal & permitted</div>
+          <div class="value-item"><span class="value-emoji">🌎</span> Regional experts</div>
+          <div class="value-item"><span class="value-emoji">🔧</span> Well maintained</div>
+          <div class="value-item"><span class="value-emoji">🤝</span> Partner mindset</div>
+        </div>
+      </div>
+    </section>
 
-    <!-- FEATURED PRODUCTS (eBay items) – all images visible, all buttons work -->
-    <h2 class="section-title"><i class="fas fa-fire"></i> today's ebay picks</h2>
-    <div class="product-grid" id="productGrid">
-      <!-- card 1 -->
-      <div class="product-card">
-        <div class="product-image-wrapper">
-          <img class="product-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='160' viewBox='0 0 200 160'%3E%3Ccircle cx='100' cy='80' r='60' fill='%23eddccf'/%3E%3Ctext x='55' y='100' font-family='Inter' font-size='60' fill='%23663333'%3E⌚%3C/text%3E%3C/svg%3E" alt="Vintage watch">
+    <section id="contact" class="contact-section">
+      <div class="container contact-grid">
+        <div>
+          <h3>📬 Pinnacle dispatch</h3>
+          <p>📞 (555) 780-1245 (24/7)</p>
+          <p>✉️ dispatch@pinnacleflatbed.test</p>
+          <p>📍 4700 Freightliner Ave, Indianapolis</p>
         </div>
-        <div class="product-detail">
-          <div class="product-name">1960s Chronograph</div>
-          <div class="product-price">$119 <small>free ship</small></div>
-          <button class="ebay-card-btn ebayItemBtn" data-product="watch"><i class="fab fa-ebay"></i> see on eBay</button>
-        </div>
-      </div>
-      <!-- card 2 -->
-      <div class="product-card">
-        <div class="product-image-wrapper">
-          <img class="product-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='160' viewBox='0 0 200 160'%3E%3Crect width='150' height='100' x='25' y='30' fill='%23d2b48c' rx='15'/%3E%3Ctext x='70' y='100' font-family='Inter' font-size='48' fill='%233d2b1a'%3E📻%3C/text%3E%3C/svg%3E" alt="Retro radio">
-        </div>
-        <div class="product-detail">
-          <div class="product-name">Zenith Transistor</div>
-          <div class="product-price">$89 <small>rare</small></div>
-          <button class="ebay-card-btn ebayItemBtn" data-product="radio"><i class="fab fa-ebay"></i> see on eBay</button>
+        <div class="contact-form" id="quote">
+          <h3>Request callback / quote</h3>
+          <form onsubmit="event.preventDefault(); alert('Message sent (demo)');">
+            <input type="text" placeholder="Full name *" required>
+            <input type="tel" placeholder="Phone number *" required>
+            <input type="text" placeholder="Origin → destination">
+            <textarea rows="2" placeholder="Commodity, weight, dates..."></textarea>
+            <button type="submit">Send →</button>
+          </form>
         </div>
       </div>
-      <!-- card 3 -->
-      <div class="product-card">
-        <div class="product-image-wrapper">
-          <img class="product-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='160' viewBox='0 0 200 160'%3E%3Cpath d='M40,70 L160,70 L180,130 L20,130Z' fill='%23bc9b7a'/%3E%3Ctext x='70' y='110' font-size='48' fill='%233d2b1a'%3E📚%3C/text%3E%3C/svg%3E" alt="Antique book">
-        </div>
-        <div class="product-detail">
-          <div class="product-name">First edition</div>
-          <div class="product-price">$199 <small>collectible</small></div>
-          <button class="ebay-card-btn ebayItemBtn" data-product="book"><i class="fab fa-ebay"></i> see on eBay</button>
-        </div>
-      </div>
-      <!-- card 4 -->
-      <div class="product-card">
-        <div class="product-image-wrapper">
-          <img class="product-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='160' viewBox='0 0 200 160'%3E%3Cpolygon points='100,20 160,70 140,140 60,140 40,70' fill='%23f4cda6'/%3E%3Ctext x='75' y='100' font-size='48' fill='%23954f2b'%3E📷%3C/text%3E%3C/svg%3E" alt="Vintage camera">
-        </div>
-        <div class="product-detail">
-          <div class="product-name">Kodak Retina</div>
-          <div class="product-price">$149 <small>+shipping</small></div>
-          <button class="ebay-card-btn ebayItemBtn" data-product="camera"><i class="fab fa-ebay"></i> see on eBay</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- REPEAT CUSTOMER BLOCK with image & subscribe -->
-    <div class="repeat-section">
-      <div class="repeat-text">
-        <h3><i class="fas fa-arrow-rotate-left" style="color:#e67e3b;"></i> for our regulars</h3>
-        <p>Join the inner circle – early access + exclusive deals.</p>
-        <div class="email-subscribe">
-          <input type="email" placeholder="your@email.com" id="subscriberEmail" value="test@example.com">
-          <button class="subscribe-action" id="subscribeNow"><i class="fas fa-bell"></i> Subscribe</button>
-        </div>
-        <p style="margin-top: 14px;">⭐ 1,500+ returning customers love us</p>
-      </div>
-      <div class="repeat-image-box">
-        <!-- image correctly placed -->
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='200' viewBox='0 0 280 200'%3E%3Crect width='280' height='200' fill='%23fae6d8'/%3E%3Ctext x='40' y='110' font-family='Inter' font-size='34' fill='%2316324b'%3E🎁 repeat gift%3C/text%3E%3Ctext x='40' y='155' font-size='24' fill='%23e67e3b'%3Ethank you%3C/text%3E%3C/svg%3E"
-             alt="Special gift for repeat customers">
-      </div>
-    </div>
+    </section>
   </main>
 
-  <!-- FOOTER with links -->
   <footer class="site-footer">
-    <div class="container footer-content">
-      <div style="font-size: 2.5rem; color:#e67e3b;"><i class="fab fa-ebay"></i></div>
-      <div class="footer-nav">
-        <a href="#" id="footerHome"><i class="fas fa-home"></i> Home</a>
-        <a href="#" id="footerEbay"><i class="fab fa-ebay"></i> eBay shop</a>
-        <a href="#" id="footerPrivacy"><i class="fas fa-lock"></i> Privacy</a>
-        <a href="#" id="footerTerms"><i class="fas fa-file-signature"></i> Terms</a>
-      </div>
-      <div class="copyright">
-        © 2025 vault&vintage · all buttons tested · images correctly placed
-      </div>
+    <div class="container">
+      <p>© 2025 Pinnacle Flatbed Transport</p>
     </div>
   </footer>
 
-  <!-- one shared toast element (already in body) -->
   <script>
-    (function() {
-      // ----- toast system (for demo feedback) -----
-      const toast = document.getElementById('actionToast');
-      function showMessage(text) {
-        toast.textContent = text || '✨ eBay store (demo)';
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 1600);
-      }
-
-      // ----- helper: attach listeners to all ebay-related buttons -----
-      const mainEbay = document.getElementById('mainEbayBtn');
-      mainEbay.addEventListener('click', (e) => {
-        e.preventDefault();
-        showMessage('🛒 Opening main eBay storefront...');
-      });
-
-      // all product "see on eBay" buttons
-      const itemBtns = document.querySelectorAll('.ebayItemBtn');
-      itemBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Skip dummy links and links with onclick
+        if (href === "#" || this.hasAttribute('onclick')) return;
+        
+        // Use getElementById to avoid DOMException with document.querySelector on numbers in IDs
+        const targetId = href.substring(1);
+        const target = document.getElementById(targetId);
+        
+        if (target) {
           e.preventDefault();
-          const item = btn.getAttribute('data-product') || 'item';
-          showMessage(`🔎 Viewing "${item}" on eBay (demo)`);
-        });
-      });
-
-      // ----- navigation links (header nav + footer nav) all produce feedback & no broken actions-----
-      const navIds = ['navHome', 'navShop', 'navAbout', 'navContact', 'footerHome', 'footerEbay', 'footerPrivacy', 'footerTerms'];
-      navIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.addEventListener('click', (e) => {
-            e.preventDefault();
-            const name = id.replace('nav','').replace('footer','');
-            showMessage(`📍 ${name} section (demo)`);
-          });
+          target.scrollIntoView({ behavior: 'smooth' });
         }
       });
-
-      // subscribe button (interactive, with email check)
-      const subBtn = document.getElementById('subscribeNow');
-      const emailInput = document.getElementById('subscriberEmail');
-      subBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const email = emailInput.value.trim();
-        if (email && email.includes('@')) {
-          showMessage(`📧 Subscribed with ${email} (demo)`);
-        } else {
-          showMessage(`📧 Please enter a valid email (demo)`);
-        }
-      });
-
-      // optional: highlight active home for aesthetics, but not required.
-      // verify all images: hero, 4 product images, repeat image all present.
-      // all buttons are covered: main ebay, 4 product buttons, subscribe, all nav links.
-      // no missing images – all src filled with inline SVG.
-      console.log('All buttons operational, images properly placed.');
-    })();
+    });
   </script>
 </body>
 </html>
